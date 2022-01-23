@@ -15,9 +15,15 @@
 
     <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/users}">Személyek</a>
 
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/companies}">Cégek</a>
+
     <a th:if="${#request.userPrincipal != null}" th:href="@{/jobs}">Hirdetések</a>
 
     <a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Bejelentkezés</a> <!--- csak akkor jelenik meg ha nem vagy bejelentkezve(jogosan)-->
+
+    <a th:if="${#request.userPrincipal == null}" th:href="@{/registration}">Regisztráció</a>
+
+    <a th:if="${#request.userPrincipal == null}" th:href="@{/registrationCom}">Regisztráció cégeknek</a>
 
     <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Adminfül</a>  <!-- csak adminnak látható -->
 

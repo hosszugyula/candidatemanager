@@ -32,11 +32,11 @@
 <div class="container">
     <div class="left">
     <div class="icon">
-        <img th:src="@{/img/user-icon.png}">
+        <img th:src="@{/images/user-icon.png}"/>
     </div>
     <div class="fullname">
-        <span class="name" th:text="${appUser.details?.first_name}"></span>
-        <span  class="name" th:text="${appUser.details?.sur_name}"></span>
+        <span class="name" th:text="${appUser.first_name}"></span>
+        <span  class="name" th:text="${appUser.sur_name}"></span>
     </div>
     </div>
     <div class="right">
@@ -46,11 +46,11 @@
     </div>
     <div class="birth-date">
         <h3>Születési dátum:</h3>
-        <span th:text="${appUser.details?.birth_date}"></span>
+        <span th:text="${appUser.birth_date}"></span>
     </div>
     <div class="introduction">
         <h3>Leírás:</h3>
-        <span th:text="${appUser.details?.introduction}"></span>
+        <span th:text="${appUser.introduction}"></span>
     </div>
     </div>
 
