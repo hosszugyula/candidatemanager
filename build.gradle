@@ -15,7 +15,7 @@ repositories {
 
 ext {
 	lombokVersion = '1.18.22'
-	springbootVersion = '2.6.1'
+	springbootVersion = '2.6.2'
 }
 
 dependencies {
@@ -26,6 +26,8 @@ dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springbootVersion}"
 	implementation "org.springframework.boot:spring-boot-starter-thymeleaf:${springbootVersion}"
 	implementation "org.springframework.boot:spring-boot-starter-jdbc:${springbootVersion}"
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.6.2'
+	implementation group: 'commons-validator', name: 'commons-validator', version: '1.7'
 	implementation group: 'org.springframework.security', name: 'spring-security-core', version: '5.5.3'
 	implementation group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.12.RELEASE'
 	implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
@@ -38,11 +40,6 @@ dependencies {
 
 	testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
 	testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-
-	implementation 'com.h2database:h2:2.0.202'
-
-
-
 }
 
 test {

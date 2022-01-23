@@ -52,7 +52,7 @@ function clicked(e)
          </span>
 </div>
 
-<div sec:authorize="hasRole('ROLE_ADMIN')" class="container">
+<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_COMPANY')" class="container">
     <div class="right">
 <h1>Álláshirdetések</h1>
 <table class="tg">

@@ -3,13 +3,16 @@ package university.candidatemanager.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
+@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
 public class AppUser {
@@ -20,7 +23,12 @@ public class AppUser {
 
     private String userName;
     private String encryptedPassword;
-    private AppUserDetails details;
+    private String confirmPassword;
+    private String first_name;
+    private String sur_name;
+    private String introduction;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birth_date;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roleNames = new ArrayList<>();
@@ -68,7 +76,4 @@ public class AppUser {
         String user = "ROLE_USER";
         return roleNames.contains(user);
     }
-
-    //ToDO enum for Roles
-
 }

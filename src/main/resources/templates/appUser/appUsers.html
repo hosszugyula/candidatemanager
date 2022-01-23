@@ -64,9 +64,9 @@ function clicked(e)
     </thead>
     <tbody>
     <tr th:each="user : ${appUsersList}">
-        <td class="user" th:text="${user.details?.first_name}"></td>
-        <td class="user" th:text="${user.details?.sur_name}"></td>
-        <td class="user" th:text="${user.details?.birth_date}"></td>
+        <td class="user" th:text="${user.first_name}"></td>
+        <td class="user" th:text="${user.sur_name}"></td>
+        <td class="user" th:text="${user.birth_date}"></td>
         <td class="user" th:href="@{/users/{id}(id=${user.id})}"><a class="button" th:href="@{/users/{id}(id=${user.id})}">Link</a></td>
         <td class="user" th:href="@{/users/update/{id}(id=${user.id})}"><a class="button" th:href="@{/users/update/{id}(id=${user.id})}">Módosítás</a></td>
         <td class="user" th:href="@{/users/delete/{id}(id=${user.id})}"><a class="button" th:href="@{/users/delete/{id}(id=${user.id})}" onclick="clicked(event)">Törlés</a></td>
@@ -87,13 +87,13 @@ function clicked(e)
     <label>User:</label>
     <input type="checkbox" th:field="*{IsUser}"><br>
     <label>Vezetéknév:</label><br>
-    <input type="text" th:field="*{details.first_name}"><br>
+    <input type="text" th:field="*{first_name}"><br>
     <label>Keresztnév:</label><br>
-    <input type="text" th:field="*{details.sur_name}"><br>
+    <input type="text" th:field="*{sur_name}"><br>
     <label>Születési dátum:</label><br>
-    <input type="date" th:field="*{details.birth_date}"><br>
+    <input type="date" th:field="*{birth_date}"><br>
     <label>Leírás:</label><br>
-    <textarea th:field="*{details.introduction}"></textarea><br>
+    <textarea th:field="*{introduction}"></textarea><br>
     <input type="submit" value="Hozzáadás">
     <input type="reset" value="Visszaállítás">
 </form>
