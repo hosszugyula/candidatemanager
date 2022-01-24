@@ -176,7 +176,7 @@ public class UsersController {
         appUserService.delete(id);
         List<AppUser> appUsersList = appUserService.getUsers();
         model.addAttribute("appUsersList", appUsersList);
-        return "appUser/appUsers.html";
+        return "successDeletePage.html";
     }
 
     private Model modelCreator(Model model, AppUser user, boolean error, String message) {
