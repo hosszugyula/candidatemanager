@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Személyes infók</title>
     <style th:inline="css">
@@ -15,7 +15,7 @@
 
 <div class="container">
     <div class="icon">
-        <img th:src="@{/images/user-icon.png}">
+        <img th:src="@{/img/user-icon.png}">
     </div>
     <br/>
     <h3>Üdvözöllek : <span th:utext="${#request.userPrincipal.name}"></span></h3>
