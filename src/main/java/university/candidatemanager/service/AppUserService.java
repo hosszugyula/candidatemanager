@@ -17,6 +17,16 @@ public class AppUserService {
 
     private final AppUserRepository userRepository;
 
+    public AppUser getAppUserByUserName(String userName) throws NotFoundException {
+        Optional<AppUser> appUser = Optional.ofNullable(userRepository.findByUserName(userName));
+
+        if(appUser.isEmpty()){
+            throw new NotFoundException("User does not exist with this Username");
+        }else {
+            return appUser.get();
+        }
+    }
+
     public AppUser getAppUserById(Long id) throws NotFoundException {
 
         Optional<AppUser> appUser = userRepository.findById(id);

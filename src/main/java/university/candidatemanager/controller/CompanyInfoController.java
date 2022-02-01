@@ -2,8 +2,8 @@ package university.candidatemanager.controller;
 
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import university.candidatemanager.model.AppUser;
-import university.candidatemanager.service.AppUserService;
+import university.candidatemanager.model.AppCompany;
+import university.candidatemanager.service.AppCompanyService;
 import university.candidatemanager.utils.WebUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -14,28 +14,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
 
-
 @Controller
-public class UserInfoController {
+public class CompanyInfoController {
 
     @Autowired
-    AppUserService service;
-
-    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
-    public String userInfo(Model model, Principal principal) throws NotFoundException {
+    AppCompanyService service;
+    @RequestMapping(value = "/userInfoC", method = RequestMethod.GET)
+    public String userInfoC(Model model, Principal principal) throws NotFoundException {
 
         String userName = principal.getName();
 
         System.out.println("User Name: " + userName);
 
-        AppUser appUser = service.getAppUserByUserName(userName);
+        AppCompany appCompany = service.getAppCompanyByUserName(userName);
 
         User loginedUser = (User) ((Authentication) principal).getPrincipal();
 
-        String userInfo = WebUtils.toString(loginedUser);
-        model.addAttribute("appUser", appUser);
-        model.addAttribute("userInfo", userInfo);
+        String userInfoC = WebUtils.toString(loginedUser);
+        model.addAttribute("appCompany", appCompany);
+        model.addAttribute("userInfoC", userInfoC);
 
-        return "userInfoPage";
+        return "companyInfoPage";
     }
 }

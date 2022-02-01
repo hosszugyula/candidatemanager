@@ -1,28 +1,57 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Személyes infók</title>
-    <style th:inline="css">
-        body { background: #f0f0f5;text-align: center; font-family:Arial, sans-serif;}
-        .container {margin-top: 75px;text-align: center; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-                    padding: 20px; border-radius: 0 0 2px 2px; background-color: #FFF; width: 50vw; height: 50vh; margin-left: auto; margin-right: auto;}
-    </style>
-</head>
-<body>
-<!-- Include _menu.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<title>Személyes infók</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+h2 {display: inline-block;}
+</style>
+<body class="w3-light-grey">
+
 <th:block th:include="_menu"></th:block>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
 
+    <!-- The Grid -->
+    <div class="w3-row-padding">
 
-<div class="container">
-    <div class="icon">
-        <img th:src="@{/img/user-icon.png}">
+        <!-- Left Column -->
+        <div class="w3-third">
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <img src="/img/user.png" style="width:100%" alt="Avatar">
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                        <h2 th:text="${appUser.first_name}"></h2> <h2 th:text="${appUser.sur_name}"></h2>
+                    </div>
+                </div>
+                <div class="w3-container">
+                    <p><i class="fa fa-user fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${appUser.userName}"></i></p >
+                    <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${appUser.birth_date}"></i></p>
+                    <br>
+                </div>
+            </div><br>
+            <!-- End Left Column -->
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-info-circle fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Leírás</h2>
+                <div class="w3-container">
+                    <p th:text="${appUser.introduction}"></p>
+                </div>
+            </div>
+            <!-- End Right Column -->
+        </div>
+        <!-- End Grid -->
     </div>
-    <br/>
-    <h3>Üdvözöllek : <span th:utext="${#request.userPrincipal.name}"></span></h3>
-    <br/>
-    <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+    <!-- End Page Container -->
 </div>
-
 </body>
-
 </html>

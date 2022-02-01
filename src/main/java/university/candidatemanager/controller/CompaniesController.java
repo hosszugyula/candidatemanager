@@ -42,7 +42,7 @@ public class CompaniesController {
         }
         System.out.println("Target=" + target);
 
-        if (target.getClass() == AppUser.class) {
+        if (target.getClass() == AppCompany.class) {
             dataBinder.setValidator(appCompanyValidator);
         }
     }
@@ -56,14 +56,14 @@ public class CompaniesController {
             throw new Exception("Nincs ilyen id-val cég");
         }
 
-        model.addAttribute("AppCompany", aC);
+        model.addAttribute("appCompany", aC);
 
         return "appCompany/appCompaniesPage.html";
     }
 
     @GetMapping("/companies")
     public String addCompanyForm(Model model) {
-        List<AppCompany> appCompaniesList = appCompanyService.getCompanies();
+        List<AppCompany> appCompaniesList = appCompanyService.getAppCompanies();
 
         model.addAttribute("appCompaniesList", appCompaniesList);
         AppCompany company = new AppCompany();
@@ -118,7 +118,7 @@ public class CompaniesController {
 
     @GetMapping("/companies/update/{id}")
     public String getCompanyForUpdate(@PathVariable(value = "id") Long id, Model model) {
-        List<AppCompany> appCompaniesList = appCompanyService.getCompanies();
+        List<AppCompany> appCompaniesList = appCompanyService.getAppCompanies();
 
         model.addAttribute("appCompaniesList", appCompaniesList);
         AppCompany company = new AppCompany();
@@ -167,7 +167,7 @@ public class CompaniesController {
     @RequestMapping(value = "/companies/delete/{id}", method={RequestMethod.DELETE, RequestMethod.GET})
     public String delete(@PathVariable Long id, @ModelAttribute("company") AppCompany company, Model model) {
         appCompanyService.delete(id);
-        List<AppCompany> appCompaniesList = appCompanyService.getCompanies();
+        List<AppCompany> appCompaniesList = appCompanyService.getAppCompanies();
         model.addAttribute("appCompaniesList", appCompaniesList);
         return "appCompany/appCompanies.html";
     }
@@ -176,7 +176,7 @@ public class CompaniesController {
         model.addAttribute("company", company);
         model.addAttribute("error", error);
         model.addAttribute("message", message);
-        List<AppCompany> appCompaniesList = appCompanyService.getCompanies();
+        List<AppCompany> appCompaniesList = appCompanyService.getAppCompanies();
         model.addAttribute("appCompaniesList", appCompaniesList);
         return model;
     }

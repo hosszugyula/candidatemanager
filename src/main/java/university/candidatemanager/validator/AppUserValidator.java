@@ -12,9 +12,6 @@ import university.candidatemanager.repository.AppUserRepository;
 @Component
 public class AppUserValidator implements Validator {
 
-    // common-validator library.
-    private EmailValidator emailValidator = EmailValidator.getInstance();
-
     @Autowired
     private AppUserRepository appUserRepository;
 
@@ -35,8 +32,6 @@ public class AppUserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "sur_name", "NotEmpty.appUser.sur_name");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "introduction", "NotEmpty.appUser.introduction");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "birth_date", "NotEmpty.appUser.birth_date");
-
-        //TODO regisztráláshoz további adatok stb
 
         if (!errors.hasFieldErrors("userName")) {
             AppUser dbUser = appUserRepository.findByUserName(appUser.getUserName());

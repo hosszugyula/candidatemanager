@@ -29,6 +29,7 @@ public class AppUser {
     private String introduction;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birth_date;
+    private String applications;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roleNames = new ArrayList<>();

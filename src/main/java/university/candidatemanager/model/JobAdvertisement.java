@@ -19,7 +19,7 @@ public class JobAdvertisement {
     @Id
     private Long id;
     private String scope;
-    private String forwarder;
+    private String company_name;
     private String content;
 
 }
