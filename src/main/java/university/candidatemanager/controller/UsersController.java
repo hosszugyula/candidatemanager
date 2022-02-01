@@ -51,7 +51,6 @@ public class UsersController {
     public String userPage(@PathVariable(value = "id") Long id, Model model) throws Exception {
 
         AppUser aU = appUserService.getAppUserById(id);
-        //TODO 404 or error page
         if (aU == null) {
             throw new Exception("Nincs ilyen id-val felhasználó");
         }
@@ -119,6 +118,7 @@ public class UsersController {
         return "appUser/appUsers.html";
 
     }
+
     @RequestMapping("/regSuccessful")
     public String viewRegisterSuccessful(Model model) {
 

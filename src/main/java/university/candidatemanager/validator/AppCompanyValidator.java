@@ -1,6 +1,5 @@
 package university.candidatemanager.validator;
 
-import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -11,9 +10,6 @@ import university.candidatemanager.repository.AppCompanyRepository;
 
 @Component
 public class AppCompanyValidator implements Validator {
-
-    // common-validator library.
-    private EmailValidator emailValidator = EmailValidator.getInstance();
 
     @Autowired
     private AppCompanyRepository appCompanyRepository;
@@ -37,8 +33,8 @@ public class AppCompanyValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "location", "NotEmpty.appCompany.location");
 
         if (!errors.hasFieldErrors("userName")) {
-            AppCompany dbUser = appCompanyRepository.findByUserName(appCompany.getUserName());
-            if (dbUser != null) {
+            AppCompany dbCompany = appCompanyRepository.findByUserName(appCompany.getUserName());
+            if (dbCompany != null) {
                 // Username is not available.
                 errors.rejectValue("userName", "Duplicate.appCompany.userName");
             }

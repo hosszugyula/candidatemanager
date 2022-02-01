@@ -15,6 +15,16 @@ import java.util.Optional;
 public class AppCompanyService {
         private final AppCompanyRepository companyRepository;
 
+    public AppCompany getAppCompanyByUserName(String userName) throws NotFoundException {
+        Optional<AppCompany> appCompany = Optional.ofNullable(companyRepository.findByUserName(userName));
+
+        if(appCompany.isEmpty()){
+            throw new NotFoundException("User does not exist with this Username");
+        }else {
+            return appCompany.get();
+        }
+    }
+
         public AppCompany getAppCompanyById(Long id) throws NotFoundException {
 
             Optional<AppCompany> appCompany = companyRepository.findById(id);
@@ -42,10 +52,6 @@ public class AppCompanyService {
 
         }
         public List<AppCompany> getAppCompanies() {
-            return companyRepository.findAll();
-        }
-
-        public List<AppCompany> getCompanies() {
             return companyRepository.findAll();
         }
 

@@ -68,7 +68,7 @@ function clicked(e)
     <tbody>
     <tr th:each="job : ${jobAdvertisementList}">
         <td class="job" th:text="${job.Scope}"></td>
-        <td class="job" th:text="${job.Forwarder}"></td>
+        <td class="job" th:text="${job.company_name}"></td>
         <td class="job" th:href="@{/jobs/{id}(id=${job.id})}"><a class="button" th:href="@{/jobs/{id}(id=${job.id})}">Link</a></td>
         <td class="job" th:href="@{/jobs/update/{id}(id=${job.id})}"><a class="button" th:href="@{/jobs/update/{id}(id=${job.id})}">Módosítás</a></td>
         <td class="job" th:href="@{/jobs/delete/{id}(id=${job.id})}"><a class="button" th:href="@{/jobs/delete/{id}(id=${job.id})}" onclick="clicked(event)">Törlés</a></td>
@@ -83,7 +83,7 @@ function clicked(e)
     <label>Munakkör:</label><br>
     <input type="text" th:field="*{scope}"><br>
     <label>Cég neve:</label><br>
-    <input type="text" th:field="*{forwarder}"><br>
+    <input type="text" th:field="*{company_name}"><br>
     <label>Leírás:</label><br>
     <textarea th:field="*{content}"></textarea><br>
     <input type="submit" value="Hozzáadás">
@@ -106,7 +106,7 @@ function clicked(e)
             <tbody>
             <tr th:each="job : ${jobAdvertisementList}">
                 <td class="job" th:text="${job.Scope}"></td>
-                <td class="job" th:text="${job.Forwarder}"></td>
+                <td class="job" th:text="${job.company_name}"></td>
                 <td class="job" th:href="@{/jobs/{id}(id=${job.id})}"><a class="button" th:href="@{/jobs/{id}(id=${job.id})}">Link</a></td>
             </tr>
             </tbody>
