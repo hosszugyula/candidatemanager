@@ -71,7 +71,7 @@ public class UsersController {
 
     }
 
-    @GetMapping("/users/update/{id}")
+    @GetMapping(path = {"/users/update", "/users/update/{id}"})
     public String getUserForUpdate(@PathVariable(value = "id") Long id, Model model) {
         List<AppUser> appUsersList = appUserService.getUsers();
 
@@ -87,7 +87,7 @@ public class UsersController {
         }
         System.out.println(user.getId());
         model.addAttribute("user", user);
-        return "appUser/appUsers.html";
+        return "appUser/appUsersEdit.html";
 
     }
 

@@ -36,7 +36,7 @@ h2 {display: inline-block;}
                 </div>
                 <div class="w3-container">
                     <p><i class="fa fa-user fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${appUser.userName}"></i></p >
-                    <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${appUser.birth_date}"></i></p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${appUser.email}"></i></p>
                     <br>
                 </div>
             </div><br>
@@ -47,7 +47,24 @@ h2 {display: inline-block;}
         <div class="w3-twothird">
 
             <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-info-circle fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Leírás</h2>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i>Születési hely, idő</h2>
+                <div class="w3-container">
+                    <p th:text="${appUser.birth_place}"></p>
+                    <p th:text="${appUser.birth_date}"></p>
+                </div>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-phone-square fa-fw w3-margin-right w3-large w3-text-teal"></i>Telefonszám</h2>
+                <div class="w3-container">
+                    <p th:text="${appUser.phone}"></p>
+                </div>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-globe fa-fw w3-margin-right w3-large w3-text-teal"></i>Állampolgárság</h2>
+                <div class="w3-container">
+                    <p th:text="${appUser.nationality}"></p>
+                </div>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-building fa-fw w3-margin-right w3-large w3-text-teal"></i>Tartózkodási hely</h2>
+                <div class="w3-container">
+                    <p th:text="${appUser.address}"></p>
+                </div>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-info-circle fa-fw w3-margin-right w3-large w3-text-teal"></i>Leírás</h2>
                 <div class="w3-container">
                     <p th:text="${appUser.introduction}"></p>
                 </div>
