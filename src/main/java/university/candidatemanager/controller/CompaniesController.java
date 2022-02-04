@@ -116,7 +116,7 @@ public class CompaniesController {
         return "registerSuccessfulPage.html";
     }
 
-    @GetMapping("/companies/update/{id}")
+    @GetMapping(path= {"/companies/update", "/companies/update/{id}"})
     public String getCompanyForUpdate(@PathVariable(value = "id") Long id, Model model) {
         List<AppCompany> appCompaniesList = appCompanyService.getAppCompanies();
 
@@ -132,7 +132,7 @@ public class CompaniesController {
         }
         System.out.println(company.getId());
         model.addAttribute("company", company);
-        return "appCompany/appCompanies.html";
+        return "appCompany/appCompaniesEdit.html";
 
     }
 

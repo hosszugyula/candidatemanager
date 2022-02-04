@@ -30,8 +30,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 </div>
                 <div class="w3-container">
                     <p><i class="fa fa-user fa-fw w3-margin-right w3-large w3-text-teal"></i><i th:text="${appCompany.userName}"></i></p >
-                    <p><i class="fa fa-info fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${appCompany.registrationNumber}"></i></p>
-                    <p><i class="fa fa-map-marker fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${appCompany.location}"></i></p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${appCompany.email}"></i></p>
                     <br>
                 </div>
             </div><br>
@@ -42,7 +41,19 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="w3-twothird">
 
             <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-info-circle fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Leírás</h2>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-address-card fa-fw w3-margin-right w3-large w3-text-teal"></i>Cégjegyzékszám</h2>
+                <div class="w3-container">
+                    <p th:text="${appCompany.registrationNumber}"></p>
+                </div>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-phone-square fa-fw w3-margin-right w3-large w3-text-teal"></i>Telefonszám</h2>
+                <div class="w3-container">
+                    <p th:text="${appCompany.phone}"></p>
+                </div>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-building fa-fw w3-margin-right w3-large w3-text-teal"></i>Székhely</h2>
+                <div class="w3-container">
+                    <p th:text="${appCompany.location}"></p>
+                </div>
+                <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-info-circle fa-fw w3-margin-right w3-large w3-text-teal"></i>Leírás</h2>
                 <div class="w3-container">
                     <p th:text="${appCompany.introduction}"></p>
                 </div>

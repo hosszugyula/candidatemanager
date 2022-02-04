@@ -32,6 +32,11 @@ public class AppUserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "sur_name", "NotEmpty.appUser.sur_name");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "introduction", "NotEmpty.appUser.introduction");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "birth_date", "NotEmpty.appUser.birth_date");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty.appUser.email");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phone", "NotEmpty.appUser.phone");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "birth_place", "NotEmpty.appUser.birth_place");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nationality", "NotEmpty.appUser.nationality");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address", "NotEmpty.appUser.address");
 
         if (!errors.hasFieldErrors("userName")) {
             AppUser dbUser = appUserRepository.findByUserName(appUser.getUserName());

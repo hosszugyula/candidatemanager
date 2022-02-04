@@ -25,6 +25,8 @@ public class AppCompany {
     private String company_name;
     private String introduction;
     private String location;
+    private String email;
+    private String phone;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roleNames = new ArrayList<>();

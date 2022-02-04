@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Módosítás</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<th:block th:include="_menu"></th:block>
+<div class="container my-5">
+    <h3> Személy adatainak szerkesztése</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/users}" th:object="${user}" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="username" class="col-form-label">Felhasználónév</label>
+                            <input type="text" th:field="*{userName}" class="form-control"
+                                   id="username" placeholder="Felhasználónév" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="EncryptedPassword" class="col-form-label">Jelszó</label>
+                            <input type="text" th:field="*{EncryptedPassword}" class="form-control"
+                                   id="EncryptedPassword" placeholder="Jelszó" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="firstname" class="col-form-label">Vezetéknév</label>
+                            <input type="text" th:field="*{first_name}" class="form-control"
+                                   id="firstName" placeholder="Vezetéknév" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="surname" class="col-form-label">Keresztnév</label>
+                            <input type="text" th:field="*{sur_name}" class="form-control"
+                                   id="surname" placeholder="Keresztnév" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="email" class="col-form-label">Email</label>
+                            <input type="text" th:field="*{email}" class="form-control"
+                                   id="email" placeholder="Email" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="birth_date" class="col-form-label">Születési dátum</label>
+                            <input type="date" th:field="*{birth_date}" class="form-control"
+                                   id="birth_date" placeholder="Születési dátum" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="birth_place" class="col-form-label">Születési helyszín</label>
+                            <input type="text" th:field="*{birth_place}" class="form-control"
+                                   id="birth_place" placeholder="Születési helyszín" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="phone" class="col-form-label">Telefonszám</label>
+                            <input type="text" th:field="*{phone}" class="form-control"
+                                   id="phone" placeholder="Telefonszám" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="nationality" class="col-form-label">Állampolgárság</label>
+                            <input type="text" th:field="*{nationality}" class="form-control"
+                                   id="nationality" placeholder="Állampolgárság" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="address" class="col-form-label">Tartózkodási hely</label>
+                            <input type="text" th:field="*{address}" class="form-control"
+                                   id="address" placeholder="Tartózkodási hely" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="intro" class="col-form-label">Rövid leírás</label>
+                            <input type="text" th:field="*{introduction}" class="form-control"
+                                   id="intro" placeholder="Rövid leírás" />
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="user" class="col-form-label">Jelentkező</label>
+                            <input type="checkbox" th:field="*{IsUser}"
+                                   id="user"/>
+                            <label for="admin" class="col-form-label">Admin</label>
+                            <input type="checkbox" th:field="*{IsAdmin}"
+                                   id="admin"/>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+
+                        <input type="hidden" id="id" th:field="*{Id}">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

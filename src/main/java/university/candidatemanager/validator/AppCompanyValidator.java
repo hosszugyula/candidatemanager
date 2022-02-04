@@ -31,6 +31,8 @@ public class AppCompanyValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "registrationNumber", "NotEmpty.appCompany.registrationNumber");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "introduction", "NotEmpty.appCompany.introduction");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "location", "NotEmpty.appCompany.location");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty.appCompany.email");
+
 
         if (!errors.hasFieldErrors("userName")) {
             AppCompany dbCompany = appCompanyRepository.findByUserName(appCompany.getUserName());

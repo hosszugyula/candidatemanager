@@ -30,6 +30,11 @@ public class AppUser {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birth_date;
     private String applications;
+    private String email;
+    private String phone;
+    private String birth_place;
+    private String nationality;
+    private String address;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roleNames = new ArrayList<>();
