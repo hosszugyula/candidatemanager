@@ -37,8 +37,8 @@
         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/companies}">Cégek</a></li>
         <li th:if="${#request.userPrincipal != null}" ><a th:href="@{/jobs}">Hirdetések</a></li>
         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/admin}">Adminfül</a></li>
-        <li th:if="${#request.userPrincipal != null}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')"><a th:utext="${#request.userPrincipal.name}" th:href="@{/userInfo}"></a></li>
-        <li th:if="${#request.userPrincipal != null}" sec:authorize="hasRole('ROLE_COMPANY')"><a th:utext="${#request.userPrincipal.name}" th:href="@{/userInfoC}"></a></li>
+        <li th:if="${#request.userPrincipal != null}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')"><a th:href="@{/userInfo}">Saját profil</a></li>
+        <li th:if="${#request.userPrincipal != null}" sec:authorize="hasRole('ROLE_COMPANY')"><a th:href="@{/userInfoC}">Saját profil</a></li>
         <li th:if="${#request.userPrincipal == null}"><a th:href="@{/login}">Bejelentkezés</a></li>
         <li th:if="${#request.userPrincipal == null}"><a th:href="@{/registration}">Regisztráció</a></li>
         <li th:if="${#request.userPrincipal != null}"><a th:href="@{/logout}">Kijelentkezés</a></li>
