@@ -1,35 +1,20 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Hirdetések</title>
-    <style th:inline="css">
-    body {background: #D1D1D1; text-align: center; font-family:Arial, sans-serif}
-    .container {display: grid; grid-template-columns: auto;
-                grid-template-areas: "left right"; margin-left: auto; margin-right: auto;
-                border-radius: 15px;}
-    .left {grid-area: left; margin-right: auto; margin-left: auto; width: 70%;}
-    .right {grid-are: right; width: 98%;}
-    form {text-align: left; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-    padding: 20px; border-radius: 0 0 2px 2px; background-color: #FFF;}
-    .tg { width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto; font-size: 0.9em; font-family: sans-serif;
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);}
-    .tg thead tr { background-color: #009879; color: #ffffff; text-align: left;}
-    .tg th, .tg td { padding: 12px 15px;}
-    .tg tbody tr {border-bottom: 1px solid #dddddd;}
-    .tg tbody tr:nth-of-type(even) {background-color: #f3f3f3;}
-    .tg tbody tr:last-of-type { border-bottom: 2px solid #009879;}
-    .tg tbody tr.active-row { font-weight: bold; color: #009879;}
-    .tg .column {text-align: center;}
-    input[type=text], input[type=submit], input[type=reset], textarea {padding: 15px 20px; margin: 8px 0;display: inline-block;
-    border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;}
-    table a {text-decoration: none; color: inherit;}
-    .button { width: 75px; height: 25px; background: #009879; padding: 5px; text-align: center; border-radius: 5px;
-              color: white; font-weight: bold; line-height: 25px;}
-    .table {margin-left: auto; margin-right: auto; width: 50vw;}
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <style>
+        body { margin: 0; font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-size: .8125rem; font-weight: 400;
+        line-height: 1.5385; color: #333; text-align: left; background-color: #f5f5f5}
+        .mt-50 { margin-top: 50px } .mb-50 { margin-bottom: 50px}
+        .bg-teal-400 { background-color: #26a69a}
+        h6 a { text-decoration: none !important; color: inherit; }
     </style>
 </head>
 <body>
@@ -41,76 +26,64 @@ function clicked(e)
     }
 }
 </script>
-
 <th:block th:include="_menu"></th:block>
+<div class="container my-5" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_COMPANY')">
+    <h3> Új hirdetés hozzáadása</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form  th:action="@{/jobs}" th:object="${job}" method="post">
+                    <div class="row">
 
-<div th:if="${error} == true">
-    Failed!!!<br />
-    <span th:if="${message} != null"
-          th:utext="${message}">
-                Static summary
-         </span>
-</div>
+                        <div class="form-group col-md-8">
+                            <label for="scope" class="col-form-label">Munkakör</label>
+                            <input type="text" th:field="*{scope}" class="form-control"
+                                   id="scope" placeholder="Munkakör" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="company_name" class="col-form-label">Cégnév</label>
+                            <input type="text" th:field="*{company_name}" class="form-control"
+                                   id="company_name" placeholder="Cégnév" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="content" class="col-form-label">Rövid leírás</label>
+                            <input type="text" th:field="*{content}" class="form-control"
+                                   id="content" placeholder="Rövid leírás" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
 
-<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_COMPANY')" class="container">
-    <div class="right">
-<h1>Álláshirdetések</h1>
-<table class="tg">
-    <thead>
-    <tr>
-        <th class="column">Munkakör</th>
-        <th class="column">Cégnév</th>
-        <th class="column"> Részletek </th>
-        <th class="column">Módosítás</th>
-        <th class="column">Törlés</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="job : ${jobAdvertisementList}">
-        <td class="job" th:text="${job.Scope}"></td>
-        <td class="job" th:text="${job.company_name}"></td>
-        <td class="job" th:href="@{/jobs/{id}(id=${job.id})}"><a class="button" th:href="@{/jobs/{id}(id=${job.id})}">Link</a></td>
-        <td class="job" th:href="@{/jobs/update/{id}(id=${job.id})}"><a class="button" th:href="@{/jobs/update/{id}(id=${job.id})}">Módosítás</a></td>
-        <td class="job" th:href="@{/jobs/delete/{id}(id=${job.id})}"><a class="button" th:href="@{/jobs/delete/{id}(id=${job.id})}" onclick="clicked(event)">Törlés</a></td>
-    </tr>
-    </tbody>
-</table>
-    </div>
-    <div class="left">
-<h1>Álláshirdetés hozzáadása</h1>
-<form action="#" th:action="@{/jobs}" th:object="${job}" method="post">
-    <input type="hidden" id="number" th:field="*{Id}"><br>
-    <label>Munakkör:</label><br>
-    <input type="text" th:field="*{scope}"><br>
-    <label>Cég neve:</label><br>
-    <input type="text" th:field="*{company_name}"><br>
-    <label>Leírás:</label><br>
-    <textarea th:field="*{content}"></textarea><br>
-    <input type="submit" value="Hozzáadás">
-    <input type="reset" value="Visszaállítás">
-</form>
+                        <input type="hidden" id="id" th:field="*{Id}">
+
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-
-<div sec:authorize="hasRole('ROLE_USER')" class="container2">
-    <div class="table">
-        <h1>Álláshirdetések</h1>
-        <table class="tg">
-            <thead>
-            <tr>
-                <th class="column">Munkakör XYZ</th>
-                <th class="column">XYZ KFT</th>
-                <th class="column"> Részletek </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="job : ${jobAdvertisementList}">
-                <td class="job" th:text="${job.Scope}"></td>
-                <td class="job" th:text="${job.company_name}"></td>
-                <td class="job" th:href="@{/jobs/{id}(id=${job.id})}"><a class="button" th:href="@{/jobs/{id}(id=${job.id})}">Link</a></td>
-            </tr>
-            </tbody>
-        </table>
+<div class="container d-flex justify-content-center mt-50 mb-50">
+    <div class="row">
+        <div class="col-md-15">
+            <div class="card card-body" th:each="job : ${jobAdvertisementList}">
+                <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+                    <div class="mr-2 mb-3 mb-lg-0"> <img th:src="@{img/jobpage.jpg}" width="150" height="150" alt=""> </div>
+                    <div class="media-body">
+                        <h6 class="media-title font-weight-bold"> <a th:href="@{/jobs/{id}(id=${job.id})}" data-abc="true" th:text="${job.Scope}"></a> </h6>
+                        <p class="mb-3" th:text="${job.company_name}"></p>
+                    </div>
+                    <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
+                        <a th:href="@{/jobs/{id}(id=${job.id})}"><button type="submit" class="btn btn-warning mt-4 text-white"><i class="icon-cart-add mr-2"></i>Részletek</button></a>
+                    </div>
+                    <div class="mt-3 mt-lg-0 ml-lg-3 text-center" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_COMPANY')">
+                        <a th:href="@{/jobs/update/{id}(id=${job.id})}"><button type="submit" class="btn btn-warning mt-4 text-white"><i class="icon-cart-add mr-2"></i>Módosítás</button></a>
+                    </div>
+                    <div class="mt-3 mt-lg-0 ml-lg-3 text-center" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_COMPANY')">
+                        <a th:href="@{/jobs/delete/{id}(id=${job.id})}"  onclick="clicked(event)"><button type="submit" class="btn btn-warning mt-4 text-white"><i class="icon-cart-add mr-2"></i>Törlés</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Módosítás</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<th:block th:include="_menu"></th:block>
+<div class="container my-5">
+    <h3> Hirdetés adatainak szerkesztése</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form  th:action="@{/jobs}" th:object="${job}" method="post">
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+                            <label for="scope" class="col-form-label">Munkakör</label>
+                            <input type="text" th:field="*{scope}" class="form-control"
+                                   id="scope" placeholder="Munkakör" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="company_name" class="col-form-label">Cégnév</label>
+                            <input type="text" th:field="*{company_name}" class="form-control"
+                                   id="company_name" placeholder="Cégnév" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="content" class="col-form-label">Rövid leírás</label>
+                            <input type="text" th:field="*{content}" class="form-control"
+                                   id="content" placeholder="Rövid leírás" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+
+                        <input type="hidden" id="id" th:field="*{Id}">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

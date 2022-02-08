@@ -53,7 +53,7 @@ public class JobsController {
         System.out.println("getJobForUpdate"+job.getId());
         System.out.println(job.getId());
         model.addAttribute("job", job);
-        return "jobAdvertisement/jobAdvertisements.html";
+        return "jobAdvertisement/jobAdvertisementEdit.html";
 
     }
 
@@ -88,7 +88,7 @@ public class JobsController {
         jobAdvertisementService.delete(id);
         List<JobAdvertisement> jobAdvertisementList = jobAdvertisementService.jobAdvertisements();
         model.addAttribute("jobAdvertisementList", jobAdvertisementList);
-        return "jobAdvertisement/jobAdvertisements.html";
+        return "successDeletePage.html";
     }
 
     private Model modelCreator(Model model, JobAdvertisement job, boolean error, String message) {
