@@ -24,5 +24,7 @@ public class JobAdvertisement {
     private String scope;
     private String company_name;
     private String content;
-
+    private String language;
+    private String hour_per_week;
+    private String pay;
 }
