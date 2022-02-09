@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+* These class file is used to write business logic.
+*/
 @Service
 @RequiredArgsConstructor
 public class AppUserService {

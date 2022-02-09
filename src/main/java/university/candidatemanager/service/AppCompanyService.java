@@ -10,6 +10,9 @@ import university.candidatemanager.repository.AppCompanyRepository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * These class file is used to write business logic.
+ */
 @Service
 @RequiredArgsConstructor
 public class AppCompanyService {

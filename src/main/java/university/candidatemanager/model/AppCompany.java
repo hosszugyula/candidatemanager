@@ -7,6 +7,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a company in the database. Contains the companies' id, usernames, encrypted passwords, confirm passwords,
+ * company names, registration numbers, locations, emails, phones, nationalities, introductions.
+ */
 @Entity
 @Data
 @Embeddable

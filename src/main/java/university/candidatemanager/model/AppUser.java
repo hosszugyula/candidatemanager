@@ -10,6 +10,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Represents a user in the database. Contains the users' id, usernames, encrypted passwords, confirm passwords,
+ * first names, surnames, birth dates, birth places, emails, phones, nationalities, addresses, introductions.
+ */
 @Entity
 @Data
 @Embeddable

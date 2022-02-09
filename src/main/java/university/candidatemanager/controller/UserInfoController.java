@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
 
-
+/**
+ * Controller that return a page.
+ */
 @Controller
 public class UserInfoController {
 

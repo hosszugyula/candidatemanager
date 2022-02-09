@@ -7,6 +7,10 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ *  We declare a MessageResource Spring Bean, so that the Spring automatically load the contents
+ *  of the validation.properties file to memory.
+ */
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
 

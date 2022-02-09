@@ -18,6 +18,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 
+/**
+ * Test class of {@link AppCompanyService}.
+ */
 class AppCompanyServiceTest {
 
     private static final Long ID = 1L;

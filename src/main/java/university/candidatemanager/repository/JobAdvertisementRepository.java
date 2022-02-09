@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Repository interface to get {@link JobAdvertisement} objects.
+ */
 @Repository
 public interface JobAdvertisementRepository extends CrudRepository<JobAdvertisement, Long> {
 

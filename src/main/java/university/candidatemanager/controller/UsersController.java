@@ -16,6 +16,10 @@ import university.candidatemanager.validator.AppUserValidator;
 
 import java.util.List;
 
+/**
+ * Controller that returns pages and
+ * REST Controller that handles users related operations.
+ */
 @Controller
 public class UsersController {
 
