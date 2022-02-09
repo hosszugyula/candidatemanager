@@ -18,6 +18,10 @@ import university.candidatemanager.validator.AppUserValidator;
 
 import java.util.List;
 
+/**
+ * Controller that returns pages and
+ * REST Controller that handles companies related operations.
+ */
 @Controller
 public class CompaniesController {
 

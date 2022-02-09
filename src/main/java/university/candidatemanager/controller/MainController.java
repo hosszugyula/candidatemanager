@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
 
+/**
+ * Controller that returns pages.
+ */
 @Controller
 public class MainController {
 

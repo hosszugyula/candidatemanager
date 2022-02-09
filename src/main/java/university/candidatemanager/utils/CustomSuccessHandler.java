@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 
+/**
+* This implementation is going to determine the URL to redirect the user to after login based on the role of the user.
+*/
 @Component
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 

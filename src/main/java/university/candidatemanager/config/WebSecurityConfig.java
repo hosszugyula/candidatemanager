@@ -14,7 +14,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
+/**
+* The {@link WebSecurityConfig} WebSecurityConfig class is used to configure security for the application.
+*/
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor

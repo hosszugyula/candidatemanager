@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controller that returns pages and
+ * REST Controller that handles advertisements related operations.
+ */
 @Controller
 public class JobsController {
     private JobAdvertisementService jobAdvertisementService;

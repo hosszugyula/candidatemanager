@@ -13,6 +13,9 @@ import university.candidatemanager.repository.AppCompanyRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * UserDetailsService means a central interface in Spring Security. It is a service to search "Company account and such company's roles".
+ */
 @Service
 @RequiredArgsConstructor
 public class CompanyDetailsServiceImpl implements UserDetailsService {

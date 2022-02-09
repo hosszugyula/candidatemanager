@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+* UserDetailsService means a central interface in Spring Security. It is a service to search "User account and such user's roles".
+*/
 @Service
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {

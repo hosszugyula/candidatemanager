@@ -8,6 +8,9 @@ import org.springframework.validation.Validator;
 import university.candidatemanager.model.AppCompany;
 import university.candidatemanager.repository.AppCompanyRepository;
 
+/**
+ * AppCompanyValidator class is used to validate the information entered in the form by users.
+ */
 @Component
 public class AppCompanyValidator implements Validator {
 

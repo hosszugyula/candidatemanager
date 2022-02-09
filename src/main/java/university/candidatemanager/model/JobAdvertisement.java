@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Represents an advertisement in the database. Contains the advertisement' id, scopes, company names, contents.
+ */
 @Entity()
 @NoArgsConstructor
 @AllArgsConstructor

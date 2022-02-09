@@ -19,6 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 
+/**
+ * Test class of {@link AppUserService}.
+ */
 class AppUserServiceTest {
 
     private static final Long USER_ID = 1L;

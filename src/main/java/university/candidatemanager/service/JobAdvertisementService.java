@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * These class file is used to write business logic.
+ */
 @Service
 @RequiredArgsConstructor
 public class JobAdvertisementService {
