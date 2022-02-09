@@ -44,7 +44,23 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 <div class="w3-container">
                     <p th:text="${jobAdvertisement.content}"></p>
                 </div>
-            </div>
+
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-language fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Szükséges nyelvtudás</h2>
+                <div class="w3-container">
+                    <p th:text="${jobAdvertisement.language}"></p>
+                </div>
+
+
+                    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-clock-o fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Heti óraszám</h2>
+                    <div class="w3-container">
+                        <p th:text="${jobAdvertisement.hour_per_week}"></p>
+                    </div>
+
+                    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-money fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Fizetés</h2>
+                    <div class="w3-container">
+                        <p th:text="${jobAdvertisement.pay}"></p>
+                    </div>
+                </div>
             <!-- End Right Column -->
         </div>
         <!-- End Grid -->
