@@ -34,6 +34,7 @@
     <ul class="main-nav">
         <li><a th:href="@{/}">Kezdőlap</a></li>
         <li sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/users}">Személyek</a></li>
+        <li sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/applications}">Jelentkezések</a></li>
         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/companies}">Cégek</a></li>
         <li th:if="${#request.userPrincipal != null}" ><a th:href="@{/jobs}">Hirdetések</a></li>
         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/admin}">Adminfül</a></li>

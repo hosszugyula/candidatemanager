@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class JobAdvertisementService {
 
-    private final JobAdvertisementRepository jobAdvertisementRepo;
+        private final JobAdvertisementRepository jobAdvertisementRepo;
 
     public JobAdvertisement getJobAdvertisementById(long id) {
         Optional<JobAdvertisement> jA = jobAdvertisementRepo.findById(id);

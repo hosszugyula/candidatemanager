@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <title>Személyes infók</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,6 +62,10 @@ h2 {display: inline-block;}
                 <h2 class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-info-circle fa-fw w3-margin-right w3-large w3-text-teal"></i>Leírás</h2>
                 <div class="w3-container">
                     <p th:text="${appUser.introduction}"></p>
+                </div>
+                <h2 sec:authorize="hasRole('ROLE_USER')" class="w3-text-grey w3-padding-10 w3-xlarge"><i class="fa fa-info-circle fa-fw w3-margin-right w3-large w3-text-teal"></i>Jelentkezések</h2>
+                <div sec:authorize="hasRole('ROLE_USER')" class="w3-container">
+                    <p><a th:href="@{/jobs/{id}(id=${job?.id})}" th:text="${job?.scope} ?: 'Nincs jelentkezésed!'"></a></p>
                 </div>
             </div>
             <!-- End Right Column -->

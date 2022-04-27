@@ -13,7 +13,6 @@ import java.util.Optional;
 @Repository
 public interface JobAdvertisementRepository extends CrudRepository<JobAdvertisement, Long> {
 
-
     @Override
     Optional<JobAdvertisement> findById(Long id);
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
-<title>Hirdetések</title>
+<title>Jelentkezések</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -25,21 +25,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 <div class="w3-display-container">
                     <img src="/img/company.png" style="width:100%" alt="Avatar">
                     <div class="w3-display-bottomleft w3-container w3-text-black">
-                        <h2 th:text="${jobAdvertisement.Scope}"></h2>
+                        <h2></h2>
                     </div>
                 </div>
                 <div class="w3-container">
-                    <p><i class="fa fa-building fa-fw w3-margin-right w3-large w3-text-teal"></i> <i th:text="${jobAdvertisement.company_name}"></i></p>
+                    <p><i class="fa fa-building fa-fw w3-margin-right w3-large w3-text-teal"></i> <i></i></p>
                     <br>
                 </div>
-                <form th:action="@{/jobs/apply}" method="post">
-                <div class="w3-container">
-                    <div class="col-md-6">
-                        <input type="submit" class="btn btn-primary" value=" Jelentkezés">
-                    </div>
-                    <br>
-                </div>
-                </form>
             </div><br>
             <!-- End Left Column -->
         </div>
@@ -48,27 +40,23 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="w3-twothird">
 
             <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-info-circle fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Leírás</h2>
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-info-circle fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Jelentkezés Id</h2>
                 <div class="w3-container">
-                    <p th:text="${jobAdvertisement.content}"></p>
+                    <p th:text="${applications.id}"></p>
                 </div>
 
-                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-language fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Szükséges nyelvtudás</h2>
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-language fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Hirdetés id</h2>
                 <div class="w3-container">
-                    <p th:text="${jobAdvertisement.language}"></p>
+                    <p th:text="${applications.advertisement_id}"></p>
                 </div>
 
 
-                    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-clock-o fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Heti óraszám</h2>
-                    <div class="w3-container">
-                        <p th:text="${jobAdvertisement.hour_per_week}"></p>
-                    </div>
-
-                    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-money fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Fizetés</h2>
-                    <div class="w3-container">
-                        <p th:text="${jobAdvertisement.pay}"></p>
-                    </div>
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-clock-o fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Jelentkező neve</h2>
+                <div class="w3-container">
+                    <p th:text="${appUser.first_name}"></p>
+                    <p th:text="${appUser.sur_name}"></p>
                 </div>
+            </div>
             <!-- End Right Column -->
         </div>
         <!-- End Grid -->
