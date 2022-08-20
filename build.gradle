@@ -46,3 +46,8 @@ test {
 	useJUnitPlatform()
 }
 
+jar {
+	manifest {
+		attributes('Main-Class': 'university.candidatemanager.CandidatemanagerApplication')
+	}
+
