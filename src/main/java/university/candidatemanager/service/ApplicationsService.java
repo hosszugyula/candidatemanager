@@ -53,7 +53,7 @@ public class ApplicationsService {
         applications1.setId(applications.getId());
         applications1.setUserid(appUser.getId());
         System.out.println(appUser.getId());
-        applications1.setAdvertisement_id(12L);
+        applications1.setAdvertisement_id(2L);
         System.out.println(applications1.getAdvertisement_id());
 
         return applicationsRepository.save(applications1);
